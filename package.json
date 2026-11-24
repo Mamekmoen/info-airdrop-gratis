@@ -1,0 +1,12 @@
+{
+  "name": "info-airdrop-gratis",
+  "version": "1.0.0",
+  "description": "Website Info Airdrop Gratis — info airdrop gratis tiap hari, tanpa modal.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
