@@ -65,121 +65,148 @@
       h1,h2,h3,.foot .brand{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
       a{color:inherit}
       img,svg{display:block}
-      .wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+      .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
       @media (max-width:560px){.wrap{width:calc(100% - 32px)}}
+
+      /* ---------- TOPBAR ---------- */
+      .topbar{background:var(--green-dark);color:#e9f2d8;font-size:13.5px}
+      .topbar-in{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap;padding:8px 0}
+      .topbar a{color:#fff;text-decoration:none;font-weight:700}
+      .topbar a:hover{text-decoration:underline}
+      .topbar .tb-item{display:inline-flex;align-items:center;gap:8px}
+      .topbar .tb-item svg{width:15px;height:15px;color:var(--gold)}
+      .topbar .tb-right{margin-left:auto;display:flex;gap:4px;align-items:center}
+      .topbar .tb-right span{opacity:.75;margin-right:4px}
+      .topbar .tb-right a{padding:4px 9px;border-radius:7px}
+      .topbar .tb-right a:hover{background:rgba(255,255,255,.12);text-decoration:none}
+      @media (max-width:640px){.topbar .tb-hide{display:none}}
+
+      /* ---------- HEADER ---------- */
+      .site-head{background:var(--surface);border-bottom:1px solid var(--line)}
+      .site-head-in{display:flex;align-items:center;gap:16px;padding:16px 0;flex-wrap:wrap}
+      .brand-lock{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+      .brand-lock img{width:56px;height:56px;border-radius:14px;box-shadow:0 8px 18px rgba(120,90,10,.25);flex:none}
+      .brand-lock .bt{line-height:1.15}
+      .brand-lock .bt .name{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(21px,3.4vw,27px);letter-spacing:-.01em}
+      .brand-lock .bt .tag{font-size:13px;color:var(--gold-strong);font-weight:700;letter-spacing:.04em}
+      .search{margin-left:auto;display:flex;align-items:stretch;gap:0}
+      .search input{
+        width:min(250px,52vw);padding:11px 14px;font:inherit;font-size:14.5px;
+        border:1px solid var(--line);border-right:none;border-radius:10px 0 0 10px;
+        background:var(--bg);color:var(--ink);outline:none;
+      }
+      .search input:focus{border-color:var(--gold)}
+      .search button{
+        border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer;
+        padding:0 16px;border-radius:0 10px 10px 0;display:grid;place-items:center;
+      }
+      .search button:hover{background:var(--green-dark)}
+      .search button svg{width:18px;height:18px}
+      .search-note{display:none;font-size:13.5px;color:var(--ink-2);padding:10px 0 0}
+      .search-note.show{display:block}
+
+      /* ---------- NAV ---------- */
+      .mainnav{background:var(--green);position:sticky;top:0;z-index:50;box-shadow:0 6px 18px rgba(10,61,44,.25)}
+      .mainnav-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+      .mainnav-in::-webkit-scrollbar{display:none}
+      .mainnav a{
+        color:#eaf5ee;text-decoration:none;font-weight:700;font-size:14.5px;letter-spacing:.03em;
+        padding:14px 18px;white-space:nowrap;border-bottom:3px solid transparent;
+      }
+      .mainnav a:hover{background:rgba(255,255,255,.10);color:#fff}
+      .mainnav a.active{color:#fff;border-bottom-color:var(--gold);background:rgba(0,0,0,.14)}
+      .mainnav a.cta{margin-left:auto;color:var(--gold);font-weight:800}
+      @media (max-width:640px){.mainnav a{padding:12px 13px;font-size:13.5px}.mainnav a.cta{margin-left:0}}
 
       /* ---------- HERO ---------- */
       .hero{
-        position:relative;
-        overflow:hidden;
-        background:
-          radial-gradient(560px 300px at 85% -60px, var(--gold-soft), transparent 65%),
-          radial-gradient(640px 340px at -80px 110%, var(--green-soft), transparent 60%),
-          var(--bg-soft);
-        border-bottom:3px double var(--gold);
+        position:relative;color:#fff;overflow:hidden;
+        background:#0a3d2c url('hero.webp') center 30%/cover no-repeat;
       }
-      .hero-inner{
-        padding:56px 0 52px;
-        display:grid;
-        grid-template-columns:1.15fr .85fr;
-        gap:40px;
-        align-items:center;
+      .hero::before{
+        content:"";position:absolute;inset:0;
+        background:linear-gradient(90deg,rgba(6,38,26,.88) 0%,rgba(6,38,26,.66) 46%,rgba(6,38,26,.10) 78%,rgba(6,38,26,0) 100%);
       }
-      @media (max-width:820px){
-        .hero-inner{grid-template-columns:1fr;padding:40px 0 40px;gap:28px}
+      @media (max-width:700px){
+        .hero{background-position:68% 30%}
+        .hero::before{background:linear-gradient(180deg,rgba(6,38,26,.82) 0%,rgba(6,38,26,.62) 60%,rgba(6,38,26,.45) 100%)}
       }
-      .badge{
+      .hero-in{position:relative;padding:84px 0 118px;max-width:640px}
+      @media (max-width:700px){.hero-in{padding:56px 0 104px}}
+      .hero .badge{
         display:inline-flex;align-items:center;gap:8px;
-        background:var(--surface);border:1px solid var(--line);
-        border-radius:999px;padding:7px 14px 7px 9px;
-        font-size:13px;font-weight:700;color:var(--ink-2);
-        box-shadow:var(--shadow);
+        background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);
+        border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;color:#fff;
+        backdrop-filter:blur(3px);
       }
-      .badge .dot{width:22px;height:22px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-size:12px}
-      h1{
-        margin:18px 0 0;
-        font-size:clamp(38px,6.2vw,60px);
-        line-height:1.04;font-weight:800;letter-spacing:-.02em;
+      .hero h1{
+        margin:20px 0 0;font-size:clamp(38px,6vw,58px);line-height:1.05;
+        font-weight:900;letter-spacing:-.01em;text-shadow:0 3px 18px rgba(0,0,0,.35);
       }
-      h1 .hl{color:var(--green)}
-      h1 .gold{color:var(--gold-strong)}
-      .lead{
-        margin:16px 0 0;font-size:clamp(16px,2.2vw,19px);
-        color:var(--ink-2);max-width:34em;
-      }
-      .lead strong{color:var(--ink)}
-      .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+      .hero h1 .gold{color:var(--gold)}
+      .hero .lead{margin:16px 0 0;font-size:clamp(16px,2.2vw,18.5px);color:rgba(255,255,255,.92);max-width:32em;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+      .hero .lead strong{color:#fff}
+      .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
       .btn{
         display:inline-flex;align-items:center;justify-content:center;gap:10px;
-        min-height:52px;padding:13px 22px;border-radius:10px;
-        font-weight:800;font-size:16px;text-decoration:none;
+        min-height:52px;padding:13px 24px;border-radius:10px;
+        font-weight:800;font-size:15.5px;text-decoration:none;letter-spacing:.02em;
         border:1px solid transparent;cursor:pointer;
         transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
       }
       .btn:active{transform:scale(.98)}
-      .btn-tg{background:var(--tg);color:#fff;box-shadow:0 12px 26px rgba(34,158,217,.32)}
+      .btn-gold{background:var(--gold);color:#241a02;box-shadow:0 12px 26px rgba(0,0,0,.3)}
+      .btn-gold:hover{background:#dcbc45}
+      .btn-tg{background:var(--tg);color:#fff;box-shadow:0 12px 26px rgba(0,0,0,.28)}
       .btn-tg:hover{background:var(--tg-dark)}
-      .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--ink);box-shadow:var(--shadow)}
-      .btn-ghost:hover{background:var(--surface-2)}
+      .btn-ghostw{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.55);color:#fff}
+      .btn-ghostw:hover{background:rgba(255,255,255,.2)}
       .btn svg{width:20px;height:20px;flex:none}
-      .hero-note{margin-top:14px;font-size:13.5px;color:var(--ink-3);display:flex;gap:8px;align-items:flex-start}
+      .hero-note{margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.85);display:flex;gap:8px;align-items:flex-start}
       .hero-note svg{width:16px;height:16px;flex:none;margin-top:2px}
 
-      /* coin visual */
-      .visual{display:flex;justify-content:center}
-      .coin-card{
-        background:var(--surface);border:1px solid #d8c690;border-radius:20px;
-        box-shadow:var(--shadow-lg);padding:26px 26px 22px;width:min(360px,100%);
-        text-align:center;
-      }
-      .coin-img{
-        width:100%;max-width:300px;height:auto;margin:2px auto 16px;border-radius:14px;
-        display:block;
-        box-shadow:0 14px 28px rgba(120,90,10,.30);
-      }
-      .coin-card h2{margin:0;font-size:19px;font-weight:800;letter-spacing:.01em}
-      .coin-card p{margin:6px 0 0;font-size:14px;color:var(--ink-2)}
-      .coin-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
-      .coin-tags span{
-        font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:999px;
-        background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);
-      }
+      /* ---------- 4 KOTAK FITUR ---------- */
+      .boxes{margin-top:-64px;position:relative;z-index:5}
+      .boxes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg)}
+      @media (max-width:900px){.boxes-grid{grid-template-columns:repeat(2,1fr)}}
+      @media (max-width:520px){.boxes-grid{grid-template-columns:1fr}}
+      .box{padding:30px 24px 28px;color:#fff}
+      .box .ic{width:52px;height:52px;margin-bottom:16px;color:#fff}
+      .box .ic svg{width:100%;height:100%}
+      .box h3{margin:0;font-size:19px;font-weight:800}
+      .box p{margin:9px 0 0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.88)}
+      .box-1{background:#0d5c42}
+      .box-2{background:#1b87bd}
+      .box-3{background:#c9a227;color:#241a02}
+      .box-3 .ic{color:#241a02}
+      .box-3 p{color:rgba(36,26,2,.82)}
+      .box-4{background:#b3543f}
 
       /* ---------- SECTIONS ---------- */
-      section{padding:52px 0}
-      @media (max-width:560px){section{padding:40px 0}}
+      section{padding:56px 0}
+      @media (max-width:560px){section{padding:42px 0}}
       .sec-head{max-width:640px}
+      .sec-head.center{margin-inline:auto;text-align:center}
       .sec-head h2{margin:0;font-size:clamp(24px,3.6vw,32px);font-weight:800;letter-spacing:-.015em;line-height:1.2}
       .sec-head p{margin:10px 0 0;color:var(--ink-2);font-size:16px}
       .eyebrow{display:block;font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-strong);margin-bottom:8px}
 
-      .features{
-        display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;
-      }
-      @media (max-width:820px){.features{grid-template-columns:1fr}}
-      .feature{
-        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-        padding:22px;box-shadow:var(--shadow);
-      }
-      .feature .ic{
-        width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:14px;
-      }
-      .feature .ic svg{width:24px;height:24px}
-      .ic-gold{background:var(--gold-soft);color:var(--gold-strong)}
-      .ic-green{background:var(--green-soft);color:var(--green)}
-      .ic-blue{background:#e3f2fa;color:var(--tg-dark)}
-      @media (prefers-color-scheme: dark){.ic-blue{background:#12303f;color:#5ec2ec}}
-      .feature h3{margin:0;font-size:17px;font-weight:800}
-      .feature p{margin:7px 0 0;font-size:14.5px;color:var(--ink-2)}
+      /* welcome */
+      .welcome{text-align:center}
+      .welcome h2{margin:0;font-size:clamp(27px,4.4vw,38px);font-weight:800;line-height:1.18;letter-spacing:-.015em}
+      .welcome .wlead{margin:16px auto 0;max-width:46em;color:var(--ink-2);font-size:16.5px}
+      .welcome .orn{width:74px;height:3px;background:var(--gold);border-radius:2px;margin:22px auto 0}
+      .welcome-stats{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+      .wstat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);min-width:170px}
+      .wstat .n{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:21px;color:var(--green)}
+      @media (prefers-color-scheme: dark){.wstat .n{color:var(--gold)}}
+      .wstat .l{font-size:13px;color:var(--ink-2);font-weight:600;margin-top:2px}
 
       /* steps */
       .steps-band{background:var(--surface);border-block:1px solid var(--line)}
-      .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:step}
+      .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
       @media (max-width:820px){.steps{grid-template-columns:1fr}}
-      .step{
-        border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);
-        padding:22px;position:relative;
-      }
+      .step{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:22px}
       .step .num{
         width:38px;height:38px;border-radius:50%;background:var(--green-dark);color:#f5ecca;
         border:2px solid var(--gold);
@@ -193,7 +220,7 @@
       .channels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
       @media (max-width:820px){.channels{grid-template-columns:1fr}}
       .channel{
-        display:flex;flex-direction:column;gap:0;text-decoration:none;
+        display:flex;flex-direction:column;text-decoration:none;
         background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
         padding:22px;box-shadow:var(--shadow);
         transition:transform .15s ease, box-shadow .15s ease;
@@ -210,16 +237,10 @@
       .channel h3{margin:0;font-size:17px;font-weight:800}
       .channel .handle{font-size:13.5px;color:var(--ink-3);font-weight:600}
       .channel p{margin:12px 0 0;font-size:14.5px;color:var(--ink-2);flex:1}
-      .channel .go{
-        margin-top:16px;display:inline-flex;align-items:center;gap:7px;
-        font-weight:800;font-size:14.5px;color:var(--green);min-height:36px;
-      }
+      .channel .go{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:14.5px;color:var(--green);min-height:36px}
       .channel .go svg{width:16px;height:16px}
       .channel.main{border:2px solid var(--tg)}
-      .pill{
-        margin-left:auto;font-size:11.5px;font-weight:800;letter-spacing:.04em;
-        background:var(--tg);color:#fff;border-radius:999px;padding:4px 9px;white-space:nowrap;
-      }
+      .pill{margin-left:auto;font-size:11.5px;font-weight:800;letter-spacing:.04em;background:var(--tg);color:#fff;border-radius:999px;padding:4px 9px;white-space:nowrap}
 
       /* final CTA */
       .final{
@@ -238,16 +259,9 @@
       .foot{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-start;justify-content:space-between}
       .foot .brand{font-weight:800;font-size:15px}
       .foot nav{display:flex;flex-wrap:wrap;gap:6px 4px}
-      .foot nav a{
-        display:inline-flex;align-items:center;min-height:36px;padding:6px 10px;
-        font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:none;border-radius:8px;
-      }
+      .foot nav a{display:inline-flex;align-items:center;min-height:36px;padding:6px 10px;font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:none;border-radius:8px}
       .foot nav a:hover{background:var(--surface-2);color:var(--ink)}
-      .dyor{
-        margin-top:18px;background:var(--gold-soft);border:1px solid var(--line);
-        border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink-2);
-        display:flex;gap:10px;align-items:flex-start;
-      }
+      .dyor{margin-top:18px;background:var(--gold-soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink-2);display:flex;gap:10px;align-items:flex-start}
       .dyor svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--gold-strong)}
       .dyor strong{color:var(--ink)}
       .copy{margin-top:16px;font-size:12.5px;color:var(--ink-3)}
@@ -261,75 +275,123 @@
   </head>
   <body>
 
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="wrap topbar-in">
+        <span class="tb-item">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.4c.2-1-.6-1.7-1.5-1.3L2.7 9.6c-1 .4-1 1.9.1 2.2l4.3 1.3 1.7 5.2c.3.9 1.4 1.1 2 .4l2.4-2.3 4.6 3.4c.8.6 2 .2 2.2-.8l2-14.6ZM8.5 12.6l9.4-6c.2-.1.4.2.2.4l-7.9 7.3-.3 3-1.4-4.7Z"/></svg>
+          <a href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">t.me/infoairdropgratis22</a>
+        </span>
+        <span class="tb-item tb-hide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Update airdrop baru setiap hari
+        </span>
+        <div class="tb-right">
+          <span>Tautan cepat:</span>
+          <a href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://www.tiktok.com/@infoairdropgratis" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://x.com/trandanalisis" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="site-head">
+      <div class="wrap site-head-in">
+        <a class="brand-lock" href="#">
+          <img src="logo-klasik.webp" alt="Logo Info Airdrop Gratis" />
+          <span class="bt">
+            <span class="name">Info Airdrop Gratis</span><br />
+            <span class="tag">GRATIS HARI INI, CUAN ESOK HARI</span>
+          </span>
+        </a>
+        <form class="search" id="searchForm" role="search">
+          <input type="search" id="searchInput" placeholder="Cari di halaman ini…" aria-label="Cari di halaman ini" />
+          <button type="submit" aria-label="Cari">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="wrap"><p class="search-note" id="searchNote"></p></div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="mainnav" aria-label="Menu utama">
+      <div class="wrap mainnav-in">
+        <a href="#" class="active">BERANDA</a>
+        <a href="#keuntungan">KEUNTUNGAN</a>
+        <a href="#cara">CARA MULAI</a>
+        <a href="#channel">CHANNEL</a>
+        <a href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener" class="cta">GABUNG TELEGRAM</a>
+      </div>
+    </nav>
+
     <!-- HERO -->
     <header class="hero">
-      <div class="wrap hero-inner">
-        <div>
-          <span class="badge"><span class="dot" aria-hidden="true">🎁</span> Channel airdrop Indonesia — update tiap hari</span>
-          <h1>Gratis Hari Ini, <span class="gold">Cuan</span> <span class="hl">Esok Hari.</span></h1>
+      <div class="wrap">
+        <div class="hero-in">
+          <span class="badge">🎁 Channel airdrop Indonesia — update tiap hari</span>
+          <h1>Gratis Hari Ini, <span class="gold">Cuan Esok Hari.</span></h1>
           <p class="lead">Airdrop terbaru dikurasi setiap hari dan dijelaskan <strong>langkah demi langkah.</strong> Tanpa deposit, tanpa modal — cukup HP + kuota, semua info lengkap di satu channel Telegram.</p>
           <div class="cta-row">
-            <a class="btn btn-tg" href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">
+            <a class="btn btn-gold" href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.4c.2-1-.6-1.7-1.5-1.3L2.7 9.6c-1 .4-1 1.9.1 2.2l4.3 1.3 1.7 5.2c.3.9 1.4 1.1 2 .4l2.4-2.3 4.6 3.4c.8.6 2 .2 2.2-.8l2-14.6ZM8.5 12.6l9.4-6c.2-.1.4.2.2.4l-7.9 7.3-.3 3-1.4-4.7Z"/></svg>
-              Gabung Channel Telegram
+              GABUNG TELEGRAM
             </a>
-            <a class="btn btn-ghost" href="#channel">Lihat Semua Channel</a>
+            <a class="btn btn-ghostw" href="#cara">LIHAT CARANYA</a>
           </div>
           <p class="hero-note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
             <span>Gratis, tanpa deposit, tanpa modal. Cukup daftar dan ikuti tugasnya.</span>
           </p>
         </div>
-
-        <div class="visual" aria-hidden="true">
-          <div class="coin-card">
-            <img class="coin-img" src="logo-klasik.webp" alt="Logo Info Airdrop Gratis">
-            <p>Garapan baru dibagikan setiap hari di Telegram.</p>
-            <div class="coin-tags">
-              <span>Tanpa modal</span><span>Cukup HP + kuota</span><span>Update tiap hari</span>
-            </div>
-          </div>
-        </div>
       </div>
     </header>
 
+    <!-- 4 KOTAK FITUR -->
+    <div class="wrap boxes" id="keuntungan">
+      <div class="boxes-grid">
+        <article class="box box-1" data-search>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Z"/><path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"/></svg></div>
+          <h3>Garapan Terbaru</h3>
+          <p>Airdrop gratis terbaru dibagikan setiap hari — dipilih satu per satu yang paling layak digarap, bukan asal sebar link.</p>
+        </article>
+        <article class="box box-2" data-search>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7.5" r="3.5"/><path d="M22 21v-2a4 4 0 0 0-3-3.85"/><path d="M15.5 4.15a3.5 3.5 0 0 1 0 6.7"/></svg></div>
+          <h3>Komunitas Kami</h3>
+          <p>Para pemburu airdrop berkumpul dan saling berbagi info, pengalaman, dan bukti reward di grup diskusi kami.</p>
+        </article>
+        <article class="box box-3" data-search>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="m9 8 2 2 4-4"/></svg></div>
+          <h3>Tutorial Lengkap</h3>
+          <p>Setiap garapan disertai panduan urut dari daftar sampai selesai, jadi pemula pun tidak bingung mulai dari mana.</p>
+        </article>
+        <article class="box box-4" data-search>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M8 2.5v4M16 2.5v4M3 9.5h18"/><path d="m9 15.5 2 2 4-4"/></svg></div>
+          <h3>Update Setiap Hari</h3>
+          <p>Airdrop bagus cepat penuh dan deadline-nya pendek. Info dibagikan setiap hari supaya kamu tidak ketinggalan.</p>
+        </article>
+      </div>
+    </div>
+
     <main>
-      <!-- KEUNTUNGAN -->
-      <section>
+      <!-- SAMBUTAN -->
+      <section class="welcome">
         <div class="wrap">
-          <div class="sec-head">
-            <span class="eyebrow">✦ Keuntungan Member</span>
-            <h2>Apa yang kamu dapat di channel ini?</h2>
-            <p>Bukan sekadar link — setiap garapan dipilih dulu dan dijelaskan caranya, jadi pemula pun bisa ikut.</p>
-          </div>
-          <div class="features">
-            <article class="feature">
-              <div class="ic ic-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3Z"/></svg>
-              </div>
-              <h3>✅ Airdrop Terkurasi</h3>
-              <p>Info airdrop dipilih satu per satu — yang dibagikan hanya garapan gratis yang layak dicoba, bukan asal sebar link.</p>
-            </article>
-            <article class="feature">
-              <div class="ic ic-green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="m9 8 2 2 4-4"/></svg>
-              </div>
-              <h3>✅ Tutorial Langkah demi Langkah</h3>
-              <p>Setiap garapan disertai panduan urut dari daftar sampai selesai, jadi kamu tidak bingung mulai dari mana.</p>
-            </article>
-            <article class="feature">
-              <div class="ic ic-blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 3"/></svg>
-              </div>
-              <h3>✅ Update Tiap Hari</h3>
-              <p>Airdrop baru muncul terus dan deadline-nya pendek. Channel diperbarui tiap hari supaya kamu tidak ketinggalan garapan.</p>
-            </article>
+          <span class="eyebrow">✦ Selamat Datang</span>
+          <h2>Selamat Datang di Info Airdrop Gratis</h2>
+          <p class="wlead">Tempat berkumpulnya pemburu airdrop Indonesia. Di sini kamu menemukan info airdrop gratis terbaru yang sudah dikurasi dan dijelaskan caranya langkah demi langkah — tanpa deposit, tanpa modal, cukup HP dan kuota. Semua garapan lengkap dibagikan gratis di channel Telegram kami setiap hari.</p>
+          <div class="orn" aria-hidden="true"></div>
+          <div class="welcome-stats">
+            <div class="wstat"><div class="n">Setiap Hari</div><div class="l">Info airdrop baru dibagikan</div></div>
+            <div class="wstat"><div class="n">100% Gratis</div><div class="l">Tanpa deposit, tanpa modal</div></div>
+            <div class="wstat"><div class="n">Cukup HP</div><div class="l">Tidak perlu laptop atau PC</div></div>
           </div>
         </div>
       </section>
 
       <!-- CARA MULAI -->
-      <div class="steps-band">
+      <div class="steps-band" id="cara">
         <section>
           <div class="wrap">
             <div class="sec-head">
@@ -338,17 +400,17 @@
               <p>Tidak perlu laptop, tidak perlu modal. HP dan kuota sudah cukup.</p>
             </div>
             <div class="steps">
-              <article class="step">
+              <article class="step" data-search>
                 <div class="num" aria-hidden="true">1</div>
                 <h3>Gabung channel Telegram</h3>
                 <p>Klik tombol gabung ke <a href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">t.me/infoairdropgratis22</a> — semua info airdrop dibagikan di sana.</p>
               </article>
-              <article class="step">
+              <article class="step" data-search>
                 <div class="num" aria-hidden="true">2</div>
                 <h3>Pilih garapan yang cocok</h3>
                 <p>Scroll info terbaru, pilih airdrop gratis yang sedang berjalan dan sesuai waktumu.</p>
               </article>
-              <article class="step">
+              <article class="step" data-search>
                 <div class="num" aria-hidden="true">3</div>
                 <h3>Ikuti tutorialnya</h3>
                 <p>Kerjakan tugasnya langkah demi langkah sesuai panduan, lalu tunggu distribusi reward-nya.</p>
@@ -367,7 +429,7 @@
             <p>Konten pendek dan update cepat ada di TikTok dan X — detail lengkap dan link garapannya selalu di Telegram.</p>
           </div>
           <div class="channels">
-            <a class="channel main" href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener">
+            <a class="channel main" href="https://t.me/infoairdropgratis22" target="_blank" rel="noopener" data-search>
               <div class="top">
                 <span class="logo logo-tg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.4c.2-1-.6-1.7-1.5-1.3L2.7 9.6c-1 .4-1 1.9.1 2.2l4.3 1.3 1.7 5.2c.3.9 1.4 1.1 2 .4l2.4-2.3 4.6 3.4c.8.6 2 .2 2.2-.8l2-14.6ZM8.5 12.6l9.4-6c.2-.1.4.2.2.4l-7.9 7.3-.3 3-1.4-4.7Z"/></svg></span>
                 <div>
@@ -380,7 +442,7 @@
               <span class="go">Gabung sekarang <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
 
-            <a class="channel" href="https://www.tiktok.com/@infoairdropgratis" target="_blank" rel="noopener">
+            <a class="channel" href="https://www.tiktok.com/@infoairdropgratis" target="_blank" rel="noopener" data-search>
               <div class="top">
                 <span class="logo logo-tt"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.8 3.6 4.1 3.9v3c-1.6 0-3-.5-4.1-1.3v6.6c0 3.4-2.4 5.8-5.7 5.8A5.6 5.6 0 0 1 5.3 15c0-3.2 2.6-5.7 6-5.5v3.1c-1.6-.3-2.9.8-2.9 2.4 0 1.4 1.1 2.5 2.5 2.5 1.5 0 2.6-1.1 2.6-2.8V3h3.1Z"/></svg></span>
                 <div>
@@ -392,7 +454,7 @@
               <span class="go">Buka TikTok <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </a>
 
-            <a class="channel" href="https://x.com/trandanalisis" target="_blank" rel="noopener">
+            <a class="channel" href="https://x.com/trandanalisis" target="_blank" rel="noopener" data-search>
               <div class="top">
                 <span class="logo logo-x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3l-6.7 7.7L22 21h-6.2l-4.8-6.3L5.4 21h-3l7.2-8.2L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.1h1.7L7.4 4.8H5.6l11.1 14.3Z"/></svg></span>
                 <div>
@@ -440,6 +502,35 @@
         <p class="copy">© 2026 Info Airdrop Gratis</p>
       </div>
     </footer>
+
+    <script>
+      (function(){
+        var form = document.getElementById('searchForm');
+        var input = document.getElementById('searchInput');
+        var note = document.getElementById('searchNote');
+        var items = Array.prototype.slice.call(document.querySelectorAll('[data-search]'));
+        function apply(){
+          var q = input.value.trim().toLowerCase();
+          var shown = 0;
+          items.forEach(function(el){
+            var hit = !q || el.textContent.toLowerCase().indexOf(q) !== -1;
+            el.style.display = hit ? '' : 'none';
+            if (hit) shown++;
+          });
+          if (!q){ note.className = 'search-note'; note.textContent = ''; return; }
+          note.className = 'search-note show';
+          note.textContent = shown
+            ? 'Ditemukan ' + shown + ' bagian yang cocok dengan "' + input.value.trim() + '" — gulir ke bawah untuk melihatnya.'
+            : 'Tidak ada bagian yang cocok dengan "' + input.value.trim() + '". Coba kata lain, misalnya "telegram" atau "tutorial".';
+        }
+        form.addEventListener('submit', function(e){
+          e.preventDefault(); apply();
+          var first = items.filter(function(el){ return el.style.display !== 'none'; })[0];
+          if (first) first.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+        input.addEventListener('input', apply);
+      })();
+    </script>
 
   </body>
 </html>
